@@ -1,0 +1,1472 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>陈嘉怡 · Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --cream: #F7F4EE;
+  --warm-white: #FAF8F4;
+  --ink: #1A1A18;
+  --ink-muted: #5A5A54;
+  --green: #3B6B3D;
+  --green-light: #D4E8D5;
+  --green-mid: #7AAB7C;
+  --border: rgba(26,26,24,0.1);
+  --border-solid: #DDD8D0;
+  --tag-bg: #EDE8E3;
+  --tag-text: #6B5D5D;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', 'PingFang SC', 'Hiragino Sans GB', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: sticky; top: 0; z-index: 200;
+  background: rgba(247,244,238,0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 0.5px solid var(--border-solid);
+  padding: 0 48px;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 56px;
+}
+.nav-logo {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 15px; font-weight: 300; letter-spacing: 0.12em;
+  color: var(--ink); text-decoration: none;
+}
+.nav-links { display: flex; gap: 28px; }
+.nav-links a {
+  font-size: 12px; letter-spacing: 0.07em; text-transform: uppercase;
+  color: var(--ink-muted); text-decoration: none; transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--green); }
+
+/* ── CONTAINER ── */
+.container { max-width: 900px; margin: 0 auto; padding: 0 48px; }
+
+/* ── HERO ── */
+.hero { padding: 72px 0 56px; }
+.hero-badge {
+  display: inline-block;
+  background: var(--green-light); color: var(--green);
+  font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
+  padding: 4px 14px; border-radius: 999px; margin-bottom: 24px;
+}
+.hero h1 {
+  font-family: 'Noto Serif SC', serif;
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  font-weight: 300; letter-spacing: -0.01em;
+  line-height: 1.2; margin-bottom: 8px;
+}
+.hero-sub {
+  font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--ink-muted); margin-bottom: 20px; font-weight: 300;
+}
+.hero p {
+  font-size: 15px; color: var(--ink-muted); max-width: 540px;
+  line-height: 1.85; margin-bottom: 32px;
+}
+.hero p em { font-style: normal; color: var(--green); font-weight: 500; }
+.hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 13px; font-weight: 400; letter-spacing: 0.04em;
+  padding: 10px 22px; border-radius: 999px;
+  text-decoration: none; cursor: pointer; transition: all 0.2s;
+  font-family: inherit; border: none;
+}
+.btn-primary { background: var(--ink); color: var(--cream); }
+.btn-primary:hover { background: var(--green); transform: translateY(-1px); }
+.btn-ghost { background: transparent; color: var(--ink); border: 0.5px solid var(--border-solid); }
+.btn-ghost:hover { border-color: var(--green); color: var(--green); transform: translateY(-1px); }
+
+/* ── STATS ── */
+.stats-row {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 0; background: var(--border-solid);
+  border: 0.5px solid var(--border-solid); border-radius: 14px;
+  overflow: hidden; margin: 48px 0;
+}
+.stat {
+  background: var(--warm-white); padding: 24px 20px;
+  border-right: 0.5px solid var(--border-solid);
+}
+.stat:last-child { border-right: none; }
+.stat-num {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 1.9rem; font-weight: 300; color: var(--green);
+  letter-spacing: -0.01em; line-height: 1;
+}
+.stat-label { font-size: 12px; color: var(--ink-muted); margin-top: 5px; }
+
+/* ── SECTIONS ── */
+section { padding: 56px 0; border-top: 0.5px solid var(--border-solid); }
+.section-label {
+  font-size: 11px; font-weight: 500; text-transform: uppercase;
+  letter-spacing: 0.12em; color: var(--ink-muted); margin-bottom: 6px;
+}
+.section-heading {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 1.6rem; font-weight: 300; margin-bottom: 32px;
+}
+
+/* ── FILTER BAR ── */
+.filter-bar { display: flex; gap: 8px; margin-bottom: 28px; flex-wrap: wrap; }
+.filter-btn {
+  padding: 6px 16px; border: 0.5px solid var(--border-solid);
+  border-radius: 999px; font-size: 12px; letter-spacing: 0.04em;
+  background: var(--warm-white); color: var(--ink-muted);
+  cursor: pointer; transition: all 0.2s; font-family: inherit;
+}
+.filter-btn.active { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+.filter-btn:hover:not(.active) { border-color: var(--green-mid); color: var(--green); }
+
+/* ── WORK GRID ── */
+.work-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 14px; }
+.work-card {
+  border-radius: 14px; overflow: hidden; cursor: pointer;
+  transition: transform 0.28s, box-shadow 0.28s;
+  background: var(--warm-white); border: 0.5px solid var(--border-solid);
+  position: relative;
+}
+.work-card:hover { transform: translateY(-4px); box-shadow: 0 14px 40px rgba(0,0,0,0.09); }
+.work-card.large { grid-column: span 7; }
+.work-card.small { grid-column: span 5; }
+.work-card.half  { grid-column: span 6; }
+
+/* Card image zone */
+.card-img-zone {
+  width: 100%; min-height: 200px; position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+.card-img-zone input[type=file] {
+  position: absolute; inset: 0; opacity: 0; cursor: pointer; z-index: 3;
+}
+.card-img-zone img {
+  width: 100%; height: 100%; object-fit: cover;
+  position: absolute; top: 0; left: 0; z-index: 2;
+}
+.upload-hint {
+  position: absolute; inset: 0; z-index: 1;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 8px; color: rgba(255,255,255,0.55); font-size: 11px; letter-spacing: 0.06em;
+  pointer-events: none;
+}
+.upload-hint-dark { color: var(--ink-muted); }
+.upload-hint svg { opacity: 0.5; }
+
+.card-open-btn {
+  position: absolute; top: 12px; right: 12px; z-index: 4;
+  width: 30px; height: 30px; border-radius: 50%;
+  background: rgba(247,244,238,0.92); border: 0.5px solid var(--border-solid);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; opacity: 0; transition: opacity 0.2s; color: var(--ink);
+  pointer-events: none;
+}
+.work-card:hover .card-open-btn { opacity: 1; }
+
+.card-body { padding: 18px 22px 22px; }
+.card-cat {
+  font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--green); margin-bottom: 6px;
+}
+.card-title { font-size: 15px; font-weight: 500; margin-bottom: 6px; line-height: 1.4; }
+.card-desc { font-size: 12px; color: var(--ink-muted); line-height: 1.65; }
+.card-metrics { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 10px; }
+.card-metric { font-size: 11px; color: var(--green); font-weight: 500; }
+
+/* ── MODAL OVERLAY ── */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 500;
+  background: rgba(26,26,24,0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.modal-overlay.open { opacity: 1; pointer-events: all; }
+
+.modal {
+  background: var(--warm-white);
+  border-radius: 18px; border: 0.5px solid var(--border-solid);
+  width: 100%; max-width: 680px;
+  max-height: 88vh; overflow-y: auto;
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+  position: relative;
+}
+.modal-overlay.open .modal { transform: translateY(0); }
+
+.modal-close {
+  position: sticky; top: 0; z-index: 10;
+  display: flex; justify-content: flex-end;
+  padding: 16px 20px 0;
+  background: var(--warm-white);
+}
+.modal-close button {
+  width: 32px; height: 32px; border-radius: 50%;
+  border: 0.5px solid var(--border-solid);
+  background: var(--cream); color: var(--ink-muted);
+  cursor: pointer; font-size: 16px; display: flex;
+  align-items: center; justify-content: center;
+  transition: all 0.2s; font-family: inherit;
+}
+.modal-close button:hover { background: var(--ink); color: var(--cream); }
+
+.modal-content { padding: 8px 36px 40px; }
+
+/* Modal image zone */
+.modal-img-zone {
+  width: 100%; min-height: 280px; border-radius: 12px; overflow: hidden;
+  background: var(--tag-bg); margin-bottom: 28px; position: relative;
+  display: flex; align-items: center; justify-content: center; cursor: pointer;
+}
+.modal-img-zone input[type=file] {
+  position: absolute; inset: 0; opacity: 0; cursor: pointer; z-index: 3;
+}
+.modal-img-zone img {
+  width: 100%; height: 100%; object-fit: cover;
+  position: absolute; top: 0; left: 0; z-index: 2;
+}
+.modal-img-placeholder {
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  color: var(--ink-muted); font-size: 12px; letter-spacing: 0.06em;
+  pointer-events: none; z-index: 1;
+}
+.modal-img-placeholder svg { opacity: 0.35; }
+
+/* Multi-image grid inside modal */
+.modal-img-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 8px; margin-bottom: 28px;
+}
+.modal-img-cell {
+  aspect-ratio: 4/3; border-radius: 8px; overflow: hidden;
+  background: var(--tag-bg); position: relative;
+  display: flex; align-items: center; justify-content: center; cursor: pointer;
+}
+.modal-img-cell input[type=file] {
+  position: absolute; inset: 0; opacity: 0; cursor: pointer; z-index: 3;
+}
+.modal-img-cell img {
+  width: 100%; height: 100%; object-fit: cover;
+  position: absolute; top: 0; left: 0; z-index: 2;
+}
+.modal-img-cell .cell-hint {
+  font-size: 10px; color: var(--ink-muted); text-align: center;
+  pointer-events: none; padding: 8px; z-index: 1;
+}
+
+.modal-cat {
+  font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--green); margin-bottom: 6px;
+}
+.modal-title {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 1.5rem; font-weight: 300; margin-bottom: 8px; line-height: 1.3;
+}
+.modal-meta { font-size: 12px; color: var(--ink-muted); margin-bottom: 24px; }
+
+.modal-section-title {
+  font-size: 11px; font-weight: 500; text-transform: uppercase;
+  letter-spacing: 0.1em; color: var(--ink-muted);
+  margin: 24px 0 10px; padding-top: 24px;
+  border-top: 0.5px solid var(--border-solid);
+}
+.modal-body-text {
+  font-size: 14px; color: var(--ink-muted); line-height: 1.85;
+}
+
+/* 【介绍】placeholder style */
+.intro-placeholder {
+  font-size: 14px; color: #B0A9A0;
+  line-height: 1.85; font-style: italic;
+  border: 1px dashed var(--border-solid);
+  border-radius: 8px; padding: 14px 16px;
+}
+
+.modal-metrics { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px; }
+.modal-metric {
+  text-align: center; padding: 12px 20px;
+  background: var(--green-light); border-radius: 10px;
+}
+.modal-metric-num {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 1.4rem; font-weight: 300; color: var(--green); line-height: 1;
+}
+.modal-metric-label { font-size: 11px; color: var(--green); margin-top: 4px; opacity: 0.8; }
+
+.modal-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 20px; }
+.modal-tag {
+  font-size: 11px; padding: 4px 12px; border-radius: 999px;
+  background: var(--tag-bg); color: var(--tag-text);
+  border: 0.5px solid var(--border-solid);
+}
+
+/* ── EXPERIENCE (timeline) ── */
+.timeline { display: flex; flex-direction: column; }
+.tl-item { display: flex; gap: 20px; padding-bottom: 32px; position: relative; }
+.tl-item:last-child { padding-bottom: 0; }
+.tl-left {
+  display: flex; flex-direction: column; align-items: center;
+  width: 16px; flex-shrink: 0; padding-top: 5px;
+}
+.tl-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
+.tl-line { width: 1px; flex: 1; background: var(--border-solid); margin-top: 5px; }
+.tl-item:last-child .tl-line { display: none; }
+.tl-body { flex: 1; }
+.tl-period { font-size: 11px; color: var(--ink-muted); letter-spacing: 0.05em; margin-bottom: 3px; }
+.tl-company { font-size: 12px; font-weight: 500; color: var(--green); margin-bottom: 2px; }
+.tl-role { font-size: 16px; font-weight: 500; margin-bottom: 10px; line-height: 1.3; }
+.tl-bullets { list-style: none; padding: 0; }
+.tl-bullets li {
+  font-size: 13px; color: var(--ink-muted); line-height: 1.75;
+  padding-left: 14px; position: relative; margin-bottom: 3px;
+}
+.tl-bullets li::before { content: '·'; position: absolute; left: 0; color: var(--green-mid); }
+.tl-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 12px; }
+.tl-tag {
+  font-size: 11px; padding: 3px 10px; background: var(--green-light);
+  color: var(--green); border-radius: 999px;
+}
+
+/* ── SKILLS ── */
+.skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.skill-card {
+  background: var(--warm-white); border: 0.5px solid var(--border-solid);
+  border-radius: 12px; padding: 20px;
+}
+.skill-card-label {
+  font-size: 11px; font-weight: 500; text-transform: uppercase;
+  letter-spacing: 0.1em; color: var(--green); margin-bottom: 12px;
+}
+.skill-pills { display: flex; flex-wrap: wrap; gap: 6px; }
+.skill-pill {
+  font-size: 12px; padding: 4px 11px; border-radius: 999px;
+  border: 0.5px solid var(--border-solid); color: var(--ink-muted);
+  background: var(--cream); transition: all 0.2s; cursor: default;
+}
+.skill-pill:hover { border-color: var(--green-mid); color: var(--green); background: var(--green-light); }
+.skill-pill.hi { background: var(--green-light); color: var(--green); border-color: var(--green-mid); }
+
+/* ── PRODUCTS ── */
+.product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; }
+.product-card { border: 0.5px solid var(--border-solid); border-radius: 12px; overflow: hidden; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; }
+.product-card:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.07); }
+.product-img-zone {
+  width: 100%; aspect-ratio: 1/1; background: var(--tag-bg);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; color: var(--ink-muted); position: relative;
+  border-bottom: 0.5px solid var(--border-solid); cursor: pointer;
+}
+.product-img-zone input[type=file] { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+.product-img-zone img { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; }
+.product-info { padding: 12px 14px; }
+.product-name { font-size: 13px; font-weight: 500; margin-bottom: 3px; }
+.product-detail { font-size: 11px; color: var(--ink-muted); }
+
+/* ── CONTACT ── */
+.contact-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
+.contact-item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px 18px; border: 0.5px solid var(--border-solid);
+  border-radius: 12px; text-decoration: none; color: var(--ink);
+  transition: border-color 0.2s, background 0.2s;
+  background: var(--warm-white);
+}
+.contact-item:hover { border-color: var(--green-mid); background: var(--green-light); }
+.contact-icon {
+  width: 36px; height: 36px; border-radius: 8px;
+  background: var(--tag-bg); display: flex; align-items: center; justify-content: center;
+  font-size: 16px; flex-shrink: 0;
+}
+.contact-label { font-size: 11px; color: var(--ink-muted); margin-bottom: 1px; }
+.contact-val { font-size: 13px; font-weight: 500; }
+
+/* ── FOOTER ── */
+footer {
+  padding: 40px 0; border-top: 0.5px solid var(--border-solid);
+  text-align: center; font-size: 12px; color: var(--ink-muted);
+  letter-spacing: 0.06em;
+}
+
+/* ── FADE IN ── */
+.fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  nav { padding: 0 20px; }
+  .container { padding: 0 20px; }
+  .hero { padding: 48px 0 36px; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); }
+  .work-card.large, .work-card.small, .work-card.half { grid-column: span 12; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .modal { border-radius: 14px; }
+  .modal-content { padding: 8px 20px 32px; }
+  .modal-img-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">陈嘉怡 · Portfolio</a>
+  <div class="nav-links">
+    <a href="#work">作品</a>
+    <a href="#exp">经历</a>
+    <a href="#products">周边</a>
+    <a href="#skills">技能</a>
+    <a href="#contact">联系</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- HERO -->
+  <div class="hero fade-in">
+    <div class="hero-badge">✦ 运营 · IP策划 · 视觉创作 · 2025 暑期实习</div>
+    <h1>陈嘉怡</h1>
+    <div class="hero-sub">Chen Jiayi · Brand Operations · Content · Creative Strategy</div>
+    <p>
+      <em>Washington University in St. Louis</em> 电影制作 × 传达设计双专业在读，辅修人机交互。
+      独立创立并运营微博金V账号「韩娱大吧」（30人团队），多平台粉丝6万+，周边销售额40万+。
+    </p>
+    <div class="hero-btns">
+      <button class="btn btn-primary" onclick="location.href='#work'">查看作品集 →</button>
+      <button class="btn btn-ghost" onclick="location.href='#contact'">联系我</button>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-row fade-in">
+    <div class="stat">
+      <div class="stat-num">6万+</div>
+      <div class="stat-label">多平台累计粉丝</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">100万+</div>
+      <div class="stat-label">周均阅读量</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">40万</div>
+      <div class="stat-label">IP周边销售额（元）</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">10城</div>
+      <div class="stat-label">线下活动覆盖</div>
+    </div>
+  </div>
+
+  <!-- WORK -->
+  <section id="work" class="fade-in">
+    <div class="section-label">Selected Works</div>
+    <div class="section-heading">精选作品</div>
+
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterWork(this,'all')">全部 All</button>
+      <button class="filter-btn" onclick="filterWork(this,'ops')">内容运营</button>
+      <button class="filter-btn" onclick="filterWork(this,'ip')">IP · 周边</button>
+      <button class="filter-btn" onclick="filterWork(this,'event')">线下活动</button>
+      <button class="filter-btn" onclick="filterWork(this,'film')">影视 · 创作</button>
+      <button class="filter-btn" onclick="filterWork(this,'tech')">科技 · 设计</button>
+    </div>
+
+    <div class="work-grid" id="workGrid">
+
+      <!-- Card 1 -->
+      <div class="work-card large" data-cat="ops" onclick="openModal('modal-1')">
+        <div class="card-img-zone" style="min-height:210px;background:#1A1A18" id="card-img-1">
+          <div class="upload-hint">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>点击上传封面图</span>
+          </div>
+          <input type="file" accept="image/*" onclick="event.stopPropagation()" onchange="previewCardImg(this,'card-img-1','modal-img-main-1')">
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none">
+            <svg viewBox="0 0 260 100" width="240" style="opacity:0.85">
+              <text x="130" y="46" text-anchor="middle" font-family="'Noto Serif SC',serif" font-size="22" fill="#D4E8D5" font-weight="300">韩娱大吧</text>
+              <text x="130" y="66" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="#7AAB7C" letter-spacing="4">WEIBO GOLD-V · 30 MEMBERS</text>
+            </svg>
+          </div>
+        </div>
+        <div class="card-open-btn">↗</div>
+        <div class="card-body">
+          <div class="card-cat">内容运营 · Community Operations</div>
+          <div class="card-title">韩娱大吧 · 微博金V账号创立与运营</div>
+          <div class="card-desc">创立并统筹运营微博金V认证账号，带领30人团队，周均阅读量持续超100万，运营微博/小红书/抖音/Twitter多平台矩阵。</div>
+          <div class="card-metrics">
+            <span class="card-metric">✦ 粉丝6万+</span>
+            <span class="card-metric">✦ 周阅读100万+</span>
+            <span class="card-metric">✦ 微博金V</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="work-card small" data-cat="ip" onclick="openModal('modal-2')">
+        <div class="card-img-zone" style="min-height:210px;background:#FFF8F0" id="card-img-2">
+          <div class="upload-hint upload-hint-dark">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>上传插画/周边图</span>
+          </div>
+          <input type="file" accept="image/*" onclick="event.stopPropagation()" onchange="previewCardImg(this,'card-img-2','modal-img-main-2')">
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none">
+            <svg viewBox="0 0 120 130" width="100">
+              <circle cx="60" cy="50" r="30" fill="#F5C87A" opacity="0.85"/>
+              <circle cx="60" cy="50" r="19" fill="#EFA827"/>
+              <ellipse cx="53" cy="47" rx="4" ry="5" fill="#1A1A18"/>
+              <ellipse cx="67" cy="47" rx="4" ry="5" fill="#1A1A18"/>
+              <circle cx="54" cy="46" r="1.5" fill="white"/>
+              <circle cx="68" cy="46" r="1.5" fill="white"/>
+              <path d="M53 58 Q60 64 67 58" stroke="#1A1A18" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+              <ellipse cx="60" cy="95" rx="22" ry="18" fill="#7AAB7C" opacity="0.75"/>
+              <text x="60" y="120" text-anchor="middle" font-size="8" fill="#8A8A84" font-family="Inter">Q版IP · Character</text>
+            </svg>
+          </div>
+        </div>
+        <div class="card-open-btn">↗</div>
+        <div class="card-body">
+          <div class="card-cat">IP设计 · Illustration & Merch</div>
+          <div class="card-title">周边策划与逻辑</div>
+          <div class="card-desc">主导5-6款IP周边从创意到供应链全流程，总销售额约40万元，毛利约20万元，含海外客户。</div>
+          <div class="card-metrics">
+            <span class="card-metric">✦ 销售额40万</span>
+            <span class="card-metric">✦ 含海外</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="work-card half" data-cat="event" onclick="openModal('modal-3')">
+        <div class="card-img-zone" style="min-height:180px;background:#EEF5EE" id="card-img-3">
+          <div class="upload-hint upload-hint-dark">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>上传活动现场图</span>
+          </div>
+          <input type="file" accept="image/*" onclick="event.stopPropagation()" onchange="previewCardImg(this,'card-img-3','modal-img-main-3')">
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none">
+            <svg viewBox="0 0 200 90" width="180">
+              <rect x="10" y="15" width="180" height="58" rx="5" fill="#D4E8D5" opacity="0.55"/>
+              <text x="100" y="42" text-anchor="middle" font-family="'Noto Serif SC',serif" font-size="13" fill="#3B6B3D">全国咖啡店联动</text>
+              <text x="100" y="58" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" fill="#7AAB7C" letter-spacing="3">10 CITIES · OFFLINE</text>
+            </svg>
+          </div>
+        </div>
+        <div class="card-open-btn">↗</div>
+        <div class="card-body">
+          <div class="card-cat">线下活动 · Offline Campaign</div>
+          <div class="card-title">全国10城咖啡店联动快闪</div>
+          <div class="card-desc">策划并执行10座城市同期联动，负责物料设计、城市协调与现场流程，覆盖全链路。</div>
+          <div class="card-metrics"><span class="card-metric">✦ 覆盖10城</span></div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="work-card half" data-cat="tech" onclick="openModal('modal-4')">
+        <div class="card-img-zone" style="min-height:180px;background:#111" id="card-img-4">
+          <div class="upload-hint">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>上传项目截图</span>
+          </div>
+          <input type="file" accept="image/*" onclick="event.stopPropagation()" onchange="previewCardImg(this,'card-img-4','modal-img-main-4')">
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none">
+            <svg viewBox="0 0 200 90" width="180">
+              <rect x="30" y="14" width="140" height="58" rx="5" fill="none" stroke="rgba(212,232,213,0.22)" stroke-width="0.8"/>
+              <text x="100" y="40" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" fill="#D4E8D5" letter-spacing="2">AI HACKATHON</text>
+              <text x="100" y="56" text-anchor="middle" font-family="'Noto Serif SC',serif" font-size="11" fill="#7AAB7C">灵感生成器</text>
+              <text x="100" y="82" text-anchor="middle" font-size="7" fill="#5A5A54" font-family="Inter">WashU · 竞赛获奖</text>
+            </svg>
+          </div>
+        </div>
+        <div class="card-open-btn">↗</div>
+        <div class="card-body">
+          <div class="card-cat">科技 · AI Product</div>
+          <div class="card-title">AI Hackathon · 灵感生成器网页产品</div>
+          <div class="card-desc">负责产品宣传策略与Demo视频剪辑，产品定位为辅助创意瓶颈人群寻找灵感，竞赛获奖。</div>
+          <div class="card-metrics"><span class="card-metric">✦ 竞赛获奖</span></div>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="work-card half" data-cat="film" onclick="openModal('modal-5')">
+        <div class="card-img-zone" style="min-height:180px;background:#0D0D0D" id="card-img-5">
+          <div class="upload-hint">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>上传视频截图/海报</span>
+          </div>
+          <input type="file" accept="image/*" onclick="event.stopPropagation()" onchange="previewCardImg(this,'card-img-5','modal-img-main-5')">
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none">
+            <svg viewBox="0 0 200 90" width="180">
+              <rect x="20" y="12" width="160" height="64" rx="3" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="0.5"/>
+              <polygon points="88,32 88,58 112,45" fill="rgba(255,255,255,0.12)"/>
+              <text x="100" y="84" text-anchor="middle" font-size="8" fill="rgba(255,255,255,0.25)" font-family="Inter" letter-spacing="2">SHORT FILM · 8 MIN</text>
+            </svg>
+          </div>
+        </div>
+        <div class="card-open-btn">↗</div>
+        <div class="card-body">
+          <div class="card-cat">影视创作 · Filmmaking</div>
+          <div class="card-title">原创微电影（8分钟）& 叙事影像剪辑</div>
+          <div class="card-desc">参与8分钟原创短片拍摄、Premiere后期及AE特效；独立完成15分钟叙事影像剪辑与视觉调色。</div>
+          <div class="card-metrics"><span class="card-metric">✦ WashU 课程项目</span></div>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="work-card half" data-cat="tech" onclick="openModal('modal-6')">
+        <div class="card-img-zone" style="min-height:180px;background:#EEF0EE" id="card-img-6">
+          <div class="upload-hint upload-hint-dark">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>上传模型/装置图</span>
+          </div>
+          <input type="file" accept="image/*" onclick="event.stopPropagation()" onchange="previewCardImg(this,'card-img-6','modal-img-main-6')">
+          <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none">
+            <svg viewBox="0 0 200 90" width="180">
+              <rect x="60" y="18" width="80" height="56" rx="3" fill="none" stroke="#3B6B3D" stroke-width="0.8" stroke-dasharray="4,3"/>
+              <polygon points="78,42 100,22 122,42 122,74 78,74" fill="rgba(59,107,61,0.08)" stroke="#3B6B3D" stroke-width="0.6"/>
+              <text x="100" y="86" text-anchor="middle" font-size="8" fill="#5A5A54" font-family="Inter" letter-spacing="1">人类与物种共生装置</text>
+            </svg>
+          </div>
+        </div>
+        <div class="card-open-btn">↗</div>
+        <div class="card-body">
+          <div class="card-cat">建筑设计 · Spatial Design</div>
+          <div class="card-title">人类与物种共生 · 建筑装置设计</div>
+          <div class="card-desc">Rhino数字建模及实体模型，筹备将建筑空间转化为Web XR交互网站，探讨「观察者与被观察者」叙事张力。</div>
+          <div class="card-metrics"><span class="card-metric">✦ Rhino</span><span class="card-metric">✦ Web XR</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="exp" class="fade-in">
+    <div class="section-label">Experience</div>
+    <div class="section-heading">经历</div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-body">
+          <div class="tl-period">2023 — 2025</div>
+          <div class="tl-company">韩娱大吧 · 微博金V · 自主创立</div>
+          <div class="tl-role">创始人 & 运营总监</div>
+          <ul class="tl-bullets">
+            <li>统筹搬运、美工、画手、字幕、策划、剪辑六大职能组，负责内容排期与账号整体运营，周均阅读量持续超100万。</li>
+            <li>主导5-6款IP周边从创意提案到供应链落地全流程；总销售额约40万元，毛利约20万元，含海外客户。</li>
+            <li>全程对接供应商、管控预算、策划线下应援活动（大屏广告、花墙等）；独立运营代购专辑业务。</li>
+            <li>运营微博、小红书、抖音、Twitter多平台矩阵，多平台累计粉丝超6万；字幕组双岗翻译+打轴。</li>
+          </ul>
+          <div class="tl-tags">
+            <span class="tl-tag">内容运营</span><span class="tl-tag">IP周边</span>
+            <span class="tl-tag">供应链</span><span class="tl-tag">团队管理</span>
+            <span class="tl-tag">多平台矩阵</span>
+          </div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-body">
+          <div class="tl-period">2023 — 至今</div>
+          <div class="tl-company">个人IP · 微博 / 小红书</div>
+          <div class="tl-role">视觉内容创作者</div>
+          <ul class="tl-bullets">
+            <li>独立运营个人视觉内容账号，专注修图与风格化创作，粉丝积累6,000+。</li>
+          </ul>
+          <div class="tl-tags"><span class="tl-tag">个人品牌</span><span class="tl-tag">视觉创作</span></div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-body">
+          <div class="tl-period">2024</div>
+          <div class="tl-company">全国咖啡店联动快闪</div>
+          <div class="tl-role">线下活动统筹负责人</div>
+          <ul class="tl-bullets">
+            <li>策划并执行10座城市同期联动，负责宣传物料设计、城市协调与现场流程管控，覆盖全链路。</li>
+          </ul>
+          <div class="tl-tags"><span class="tl-tag">活动策划</span><span class="tl-tag">物料设计</span></div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-left"><div class="tl-dot"></div><div class="tl-line"></div></div>
+        <div class="tl-body">
+          <div class="tl-period">2022 — 2023</div>
+          <div class="tl-company">独立约稿画手 · 自由职业</div>
+          <div class="tl-role">独立约稿画手（Q版）</div>
+          <ul class="tl-bullets">
+            <li>承接Q版人物商业约稿，月流水稳定达1万元+，具备完整客户管理与项目交付能力。</li>
+          </ul>
+          <div class="tl-tags"><span class="tl-tag">插画</span><span class="tl-tag">商业约稿</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section id="products" class="fade-in">
+    <div class="section-label">IP Merch</div>
+    <div class="section-heading">周边产品展示</div>
+    <p style="font-size:13px;color:var(--ink-muted);margin-bottom:24px">与站内美工和画手合作设计，共落地5–6款产品，最高单品销量1,500+，总销售额约40万元。</p>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-img-zone">
+          <span style="font-size:11px;color:var(--ink-muted)">点击上传产品图</span>
+          <input type="file" accept="image/*" onchange="previewProductImg(this)">
+        </div>
+        <div class="product-info">
+          <!-- 【介绍】产品名称 -->
+          <div class="product-name">产品名称 #1</div>
+          <!-- 【介绍】销量、价格等详情 -->
+          <div class="product-detail">销量 1,500+ · 含海外客户</div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img-zone">
+          <span style="font-size:11px;color:var(--ink-muted)">点击上传产品图</span>
+          <input type="file" accept="image/*" onchange="previewProductImg(this)">
+        </div>
+        <div class="product-info">
+          <!-- 【介绍】产品名称 -->
+          <div class="product-name">产品名称 #2</div>
+          <!-- 【介绍】销量、价格等详情 -->
+          <div class="product-detail">替换为实际产品信息</div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img-zone">
+          <span style="font-size:11px;color:var(--ink-muted)">点击上传产品图</span>
+          <input type="file" accept="image/*" onchange="previewProductImg(this)">
+        </div>
+        <div class="product-info">
+          <!-- 【介绍】产品名称 -->
+          <div class="product-name">产品名称 #3</div>
+          <!-- 【介绍】销量、价格等详情 -->
+          <div class="product-detail">替换为实际产品信息</div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img-zone">
+          <span style="font-size:11px;color:var(--ink-muted)">点击上传产品图</span>
+          <input type="file" accept="image/*" onchange="previewProductImg(this)">
+        </div>
+        <div class="product-info">
+          <!-- 【介绍】产品名称 -->
+          <div class="product-name">产品名称 #4</div>
+          <!-- 【介绍】销量、价格等详情 -->
+          <div class="product-detail">替换为实际产品信息</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="fade-in">
+    <div class="section-label">Skills & Tools</div>
+    <div class="section-heading">技能 & 工具</div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-card-label">内容运营 & IP策划</div>
+        <div class="skill-pills">
+          <span class="skill-pill hi">多平台运营</span>
+          <span class="skill-pill hi">IP周边策划</span>
+          <span class="skill-pill hi">社群管理</span>
+          <span class="skill-pill hi">内容策划</span>
+          <span class="skill-pill">KOL运营</span>
+          <span class="skill-pill">供应链对接</span>
+          <span class="skill-pill">线下活动统筹</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-label">设计 & 建模</div>
+        <div class="skill-pills">
+          <span class="skill-pill hi">Photoshop</span>
+          <span class="skill-pill hi">Illustrator</span>
+          <span class="skill-pill hi">Procreate</span>
+          <span class="skill-pill">Rhinoceros</span>
+          <span class="skill-pill">Sketch Up</span>
+          <span class="skill-pill">Revit</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-label">影视 & 后期</div>
+        <div class="skill-pills">
+          <span class="skill-pill hi">Premiere Pro</span>
+          <span class="skill-pill hi">After Effects</span>
+          <span class="skill-pill">剪映</span>
+          <span class="skill-pill">打轴（字幕制作）</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-label">语言</div>
+        <div class="skill-pills">
+          <span class="skill-pill hi">中文（母语）</span>
+          <span class="skill-pill hi">英文（流利）</span>
+          <span class="skill-pill">日语（约N3）</span>
+          <span class="skill-pill">韩语（听力基础）</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="fade-in">
+    <div class="section-label">Get in touch</div>
+    <div class="section-heading">联系我</div>
+    <p style="font-size:14px;color:var(--ink-muted);margin-bottom:24px;max-width:480px">
+      目前正在寻找2025年暑期实习机会（内容运营 · 品牌策划 · 创意方向），欢迎聊聊。
+    </p>
+    <div class="contact-grid">
+      <a href="/cdn-cgi/l/email-protection#7a4b4d4b4b4e48484249493a1d1d54191517" class="contact-item">
+        <div class="contact-icon">✉️</div>
+        <div>
+          <div class="contact-label">邮箱</div>
+          <div class="contact-val"><span class="__cf_email__" data-cfemail="b7868086868385858f8484f7d0d099d4d8da">[email&#160;protected]</span></div>
+        </div>
+      </a>
+      <a href="tel:+8617268660134" class="contact-item">
+        <div class="contact-icon">📱</div>
+        <div>
+          <div class="contact-label">手机 / 微信</div>
+          <div class="contact-val">+86-17268660134</div>
+        </div>
+      </a>
+      <a href="#" class="contact-item">
+        <div class="contact-icon">微</div>
+        <div>
+          <div class="contact-label">微博</div>
+          <!-- 【介绍】替换为你的微博ID -->
+          <div class="contact-val">@韩娱大吧</div>
+        </div>
+      </a>
+      <a href="#" class="contact-item">
+        <div class="contact-icon">红</div>
+        <div>
+          <div class="contact-label">小红书</div>
+          <!-- 【介绍】替换为你的小红书ID -->
+          <div class="contact-val">@替换为你的ID</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+</div><!-- /container -->
+
+<footer>
+  <p>© 2025 陈嘉怡 · Chen Jiayi &nbsp;·&nbsp; PORTFOLIO</p>
+</footer>
+
+
+<!-- ════════════════════════════════════
+     MODALS — 作品详情弹窗
+     搜索 【介绍】 找到所有需要填写的位置
+════════════════════════════════════ -->
+<style>
+.media-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:28px}
+.media-cell{border-radius:10px;overflow:hidden;background:var(--tag-bg);position:relative;display:flex;flex-direction:column}
+.media-cell-img{width:100%;aspect-ratio:16/9;position:relative;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.media-cell-img input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;z-index:3}
+.media-cell-img img{width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;z-index:2}
+.media-cell-img .cell-hint{font-size:10px;color:var(--ink-muted);text-align:center;pointer-events:none;z-index:1;padding:8px}
+.media-cell-caption{padding:6px 10px 8px;font-size:10px;color:var(--ink-muted);letter-spacing:.04em;border-top:.5px solid var(--border-solid);background:var(--warm-white)}
+.event-img-section{margin-bottom:28px}
+.event-img-grid-4{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:8px}
+.event-img-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.event-img-cell{border-radius:8px;overflow:hidden;background:var(--tag-bg);position:relative;display:flex;flex-direction:column}
+.event-img-cell-img{width:100%;aspect-ratio:4/3;position:relative;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.event-img-cell-img input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;z-index:3}
+.event-img-cell-img img{width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;z-index:2}
+.event-img-cell-img .cell-hint{font-size:10px;color:var(--ink-muted);text-align:center;pointer-events:none;z-index:1;padding:8px}
+.event-img-cell-caption{padding:5px 8px 6px;font-size:10px;color:var(--ink-muted);letter-spacing:.04em;background:var(--warm-white);border-top:.5px solid var(--border-solid)}
+.merch-product{margin-bottom:28px;border:.5px solid var(--border-solid);border-radius:12px;overflow:hidden}
+.merch-product-imgs{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-bottom:.5px solid var(--border-solid)}
+.merch-product-img-cell{aspect-ratio:1/1;position:relative;background:var(--tag-bg);display:flex;align-items:center;justify-content:center;cursor:pointer;border-right:.5px solid var(--border-solid)}
+.merch-product-img-cell:last-child{border-right:none}
+.merch-product-img-cell input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;z-index:3}
+.merch-product-img-cell img{width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;z-index:2}
+.merch-product-img-cell .cell-hint{font-size:9px;color:var(--ink-muted);text-align:center;pointer-events:none;z-index:1;padding:6px}
+.merch-product-info{padding:14px 16px;background:var(--warm-white)}
+.merch-product-name{font-size:14px;font-weight:500;margin-bottom:4px}
+.merch-product-stat{font-size:12px;color:var(--ink-muted)}
+.film-img-grid6{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:28px}
+.film-img-cell{aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:var(--tag-bg);position:relative;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.film-img-cell input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;z-index:3}
+.film-img-cell img{width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0;z-index:2}
+.film-img-cell .cell-hint{font-size:10px;color:var(--ink-muted);text-align:center;pointer-events:none;z-index:1;padding:8px}
+.video-zone{margin-bottom:28px;border-radius:10px;overflow:hidden;border:.5px solid var(--border-solid);background:#0D0D0D}
+.video-zone-label{padding:10px 14px;font-size:11px;letter-spacing:.08em;color:rgba(255,255,255,.35);border-bottom:.5px solid rgba(255,255,255,.06)}
+.video-zone-input{padding:14px;display:flex;flex-direction:column;gap:8px}
+.video-url-input{width:100%;padding:9px 12px;border-radius:6px;border:.5px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);color:rgba(255,255,255,.7);font-size:12px;font-family:inherit;outline:none}
+.video-url-input::placeholder{color:rgba(255,255,255,.25)}
+.video-url-input:focus{border-color:var(--green-mid)}
+.video-embed-wrap{display:none;aspect-ratio:16/9}
+.video-embed-wrap iframe{width:100%;height:100%;border:none;display:block}
+.video-embed-btn{padding:7px 16px;border-radius:6px;border:.5px solid rgba(255,255,255,.15);background:transparent;color:rgba(255,255,255,.6);font-size:12px;cursor:pointer;font-family:inherit;transition:all .2s;align-self:flex-start}
+.video-embed-btn:hover{background:rgba(255,255,255,.08);color:rgba(255,255,255,.9)}
+</style>
+
+<!-- MODAL 1: 韩娱大吧 -->
+<div class="modal-overlay" id="modal-1" onclick="closeOnOverlay(event,this)">
+  <div class="modal">
+    <div class="modal-close"><button onclick="closeModal('modal-1')">✕</button></div>
+    <div class="modal-content">
+      <div class="modal-cat">内容运营 · Community Operations</div>
+      <div class="modal-title">韩娱大吧 · 微博金V账号创立与运营</div>
+      <div class="modal-meta">2023 — 2025 &nbsp;·&nbsp; 创始人 & 运营总监 &nbsp;·&nbsp; 微博金V认证</div>
+
+      <!-- 主封面图 -->
+      <div class="modal-img-zone" id="modal-img-main-1" style="margin-bottom:16px">
+        <div class="modal-img-placeholder">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <span>点击上传主封面图（与卡片同步）</span>
+        </div>
+        <input type="file" accept="image/*" onchange="previewCardImg(this,'card-img-1','modal-img-main-1')">
+      </div>
+
+      <!-- 2张素材图，各带说明文字 -->
+      <div class="media-row">
+        <div class="media-cell">
+          <div class="media-cell-img">
+            <div class="cell-hint">素材图 1</div>
+            <input type="file" accept="image/*" onchange="previewMediaCell(this)">
+          </div>
+          <!-- 【介绍】素材图1说明，例如：账号主页截图 -->
+          <div class="media-cell-caption">【介绍】素材图说明，如：账号主页截图</div>
+        </div>
+        <div class="media-cell">
+          <div class="media-cell-img">
+            <div class="cell-hint">素材图 2</div>
+            <input type="file" accept="image/*" onchange="previewMediaCell(this)">
+          </div>
+          <!-- 【介绍】素材图2说明，例如：爆款内容截图 -->
+          <div class="media-cell-caption">【介绍】素材图说明，如：爆款内容截图</div>
+        </div>
+      </div>
+
+      <div class="modal-section-title">项目背景 Background</div>
+      <!-- 【介绍】填写创立动机、账号定位、所在赛道等 -->
+      <div class="intro-placeholder">【介绍】请在此填写项目背景，例如：创立动机、账号定位、所在赛道等。</div>
+
+      <div class="modal-section-title">我做了什么 My Role</div>
+      <!-- 【介绍】填写内容策划流程、团队分工、运营节奏等 -->
+      <div class="intro-placeholder">【介绍】请在此描述你的具体职责，例如：内容策划流程、团队分工、运营节奏等。</div>
+
+      <div class="modal-section-title">成果亮点 Highlights</div>
+      <div class="modal-metrics">
+        <div class="modal-metric"><div class="modal-metric-num">6万+</div><div class="modal-metric-label">多平台粉丝</div></div>
+        <div class="modal-metric"><div class="modal-metric-num">100万+</div><div class="modal-metric-label">周均阅读量</div></div>
+        <div class="modal-metric"><div class="modal-metric-num">30人</div><div class="modal-metric-label">团队规模</div></div>
+      </div>
+
+      <div class="modal-tags">
+        <span class="modal-tag">内容运营</span><span class="modal-tag">多平台矩阵</span>
+        <span class="modal-tag">团队管理</span><span class="modal-tag">社群运营</span>
+        <span class="modal-tag">视觉风格统筹</span><span class="modal-tag">字幕翻译</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 2: 周边策划与逻辑 -->
+<div class="modal-overlay" id="modal-2" onclick="closeOnOverlay(event,this)">
+  <div class="modal">
+    <div class="modal-close"><button onclick="closeModal('modal-2')">✕</button></div>
+    <div class="modal-content">
+      <div class="modal-cat">IP设计 · Illustration & Merch</div>
+      <div class="modal-title">周边策划与逻辑</div>
+      <div class="modal-meta">2023 — 2025 &nbsp;·&nbsp; 独立主导 &nbsp;·&nbsp; 4核心产品</div>
+
+      <!-- 主封面图 -->
+      <div class="modal-img-zone" id="modal-img-main-2" style="margin-bottom:28px">
+        <div class="modal-img-placeholder">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <span>点击上传主封面图（与卡片同步）</span>
+        </div>
+        <input type="file" accept="image/*" onchange="previewCardImg(this,'card-img-2','modal-img-main-2')">
+      </div>
+
+      <!-- 产品 1 -->
+      <div class="merch-product">
+        <div class="merch-product-imgs">
+          <div class="merch-product-img-cell"><div class="cell-hint">图1</div><input type="file" accept="image/*" onchange="previewMerchImg(this)"></div>
+          <div class="merch-product-img-cell"><div class="cell-hint">图2</div><input type="file" accept="image/*" onchange="previewMerchImg(this)"></div>
+          <div class="merch-product-img-cell"><div class="cell-hint">图3</div><input type="file" accept="image/*" onchange="previewMerchImg(this)"></div>
+          <div class="merch-product-img-cell"><div class="cell-hint">图4</div><input type="file" accept="image/*" onchange="previewMerchImg(this)"></div>
+        </div>
+        <div class="merch-product-info">
+          <!-- 【介绍】产品1名称 -->
+          <div class="merch-product-name">产品名称 #1</div>
+          <!-- 【介绍】产品1销量与介绍，例如：销量 1,500+ · 含海外客户 · 丙烯钥匙扣系列 -->
+          <div class="merch-product-stat">【介绍】销量 xxx · 产品一句话介绍</div>
+        </div>
+      </div>
+
+      <!-- 产品 2 -->
+      <div class="merch-product">
+        <div class="merch-product-imgs">
+          <div class="merch-product-img-cell"><div class="cell-hint">图1</div><input type="file" accept="image/*" onchange="previewMerchImg(this)"></div>
+          <div class="merch-product-img-cell"><div class="cell-hint">图2</div><input type="file" accept="image/*" onchange="previewMerchImg(this)"></div>
+          <div class="merch-product-img-cell"><div class="cell-hint">图3</div><input type="file" accept="image/*" onchange="previewMerchImg(this)"></div>
+          <div class="merch-product-img-cell"><div class="cell-hint">图4</div><input type="file" accept="image/*" onchange="previewMerchImg(this)"></div>
+        </div>
+        <div class="merch-product-info">
+          <!-- 【介绍】产品2名称 -->
+          <div class="merch-product-name">产品名称 #2</div>
+          <!-- 【介绍】产品2销量与介绍 -->
+          <div class="merch-product-stat">【介绍】销量 xxx · 产品一句话介绍</div>
+        </div>
+      </div>
+
+      <!-- 产品 3 -->
+      <div class="merch-product">
+        <div class="merch-product-imgs">
+          <div class="merch-product-img-cell"><div class="cell-hint">图1</div><input type="file" accept="image/*" onchange="previewMerchImg(this)"></div>
+          <div class="merch-product-img-cell"><div class="cell-hint">图2</div><input type="file" accept="image/*" onchange="previewMerchImg(this)"></div>
+          <div class="merch-product-img-cell"><div class="cell-hint">图3</div><input type="file" accept="image/*" onchange="previewMerchImg(this)"></div>
+          <div class="merch-product-img-cell"><div class="cell-hint">图4</div><input type="file" accept="image/*" onchange="previewMerchImg(this)"></div>
+        </div>
+        <div class="merch-product-info">
+          <!-- 【介绍】产品3名称 -->
+          <div class="merch-product-name">产品名称 #3</div>
+          <!-- 【介绍】产品3销量与介绍 -->
+          <div class="merch-product-stat">【介绍】销量 xxx · 产品一句话介绍</div>
+        </div>
+      </div>
+
+      <!-- 产品 4 -->
+      <div class="merch-product">
+        <div class="merch-product-imgs">
+          <div class="merch-product-img-cell"><div class="cell-hint">图1</div><input type="file" accept="image/*" onchange="previewMerchImg(this)"></div>
+          <div class="merch-product-img-cell"><div class="cell-hint">图2</div><input type="file" accept="image/*" onchange="previewMerchImg(this)"></div>
+          <div class="merch-product-img-cell"><div class="cell-hint">图3</div><input type="file" accept="image/*" onchange="previewMerchImg(this)"></div>
+          <div class="merch-product-img-cell"><div class="cell-hint">图4</div><input type="file" accept="image/*" onchange="previewMerchImg(this)"></div>
+        </div>
+        <div class="merch-product-info">
+          <!-- 【介绍】产品4名称 -->
+          <div class="merch-product-name">产品名称 #4</div>
+          <!-- 【介绍】产品4销量与介绍 -->
+          <div class="merch-product-stat">【介绍】销量 xxx · 产品一句话介绍</div>
+        </div>
+      </div>
+
+      <div class="modal-section-title">成果亮点 Highlights</div>
+      <div class="modal-metrics">
+        <div class="modal-metric"><div class="modal-metric-num">40万</div><div class="modal-metric-label">总销售额（元）</div></div>
+        <div class="modal-metric"><div class="modal-metric-num">20万</div><div class="modal-metric-label">毛利（元）</div></div>
+        <div class="modal-metric"><div class="modal-metric-num">1,500+</div><div class="modal-metric-label">最高单品销量</div></div>
+      </div>
+
+      <div class="modal-tags">
+        <span class="modal-tag">IP策划</span><span class="modal-tag">供应链</span>
+        <span class="modal-tag">插画设计</span><span class="modal-tag">跨境销售</span>
+        <span class="modal-tag">用户运营</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 3: 线下活动 -->
+<div class="modal-overlay" id="modal-3" onclick="closeOnOverlay(event,this)">
+  <div class="modal">
+    <div class="modal-close"><button onclick="closeModal('modal-3')">✕</button></div>
+    <div class="modal-content">
+      <div class="modal-cat">线下活动 · Offline Campaign</div>
+      <div class="modal-title">全国10城咖啡店联动快闪</div>
+      <div class="modal-meta">2024 &nbsp;·&nbsp; 线下活动统筹负责人</div>
+
+      <!-- 主封面图 -->
+      <div class="modal-img-zone" id="modal-img-main-3" style="margin-bottom:16px">
+        <div class="modal-img-placeholder">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <span>点击上传主封面图（与卡片同步）</span>
+        </div>
+        <input type="file" accept="image/*" onchange="previewCardImg(this,'card-img-3','modal-img-main-3')">
+      </div>
+
+      <!-- 4张现场照片 -->
+      <div class="event-img-section">
+        <div class="event-img-grid-4">
+          <div class="event-img-cell">
+            <div class="event-img-cell-img"><div class="cell-hint">现场照片 1</div><input type="file" accept="image/*" onchange="previewEventCell(this)"></div>
+            <div class="event-img-cell-caption">现场照片</div>
+          </div>
+          <div class="event-img-cell">
+            <div class="event-img-cell-img"><div class="cell-hint">现场照片 2</div><input type="file" accept="image/*" onchange="previewEventCell(this)"></div>
+            <div class="event-img-cell-caption">现场照片</div>
+          </div>
+          <div class="event-img-cell">
+            <div class="event-img-cell-img"><div class="cell-hint">现场照片 3</div><input type="file" accept="image/*" onchange="previewEventCell(this)"></div>
+            <div class="event-img-cell-caption">现场照片</div>
+          </div>
+          <div class="event-img-cell">
+            <div class="event-img-cell-img"><div class="cell-hint">现场照片 4</div><input type="file" accept="image/*" onchange="previewEventCell(this)"></div>
+            <div class="event-img-cell-caption">现场照片</div>
+          </div>
+        </div>
+        <!-- 2张物料设计 -->
+        <div class="event-img-grid-2">
+          <div class="event-img-cell">
+            <div class="event-img-cell-img"><div class="cell-hint">物料设计 1</div><input type="file" accept="image/*" onchange="previewEventCell(this)"></div>
+            <div class="event-img-cell-caption">物料设计</div>
+          </div>
+          <div class="event-img-cell">
+            <div class="event-img-cell-img"><div class="cell-hint">物料设计 2</div><input type="file" accept="image/*" onchange="previewEventCell(this)"></div>
+            <div class="event-img-cell-caption">物料设计</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-section-title">活动背景 Background</div>
+      <!-- 【介绍】填写活动举办的背景与目标 -->
+      <div class="intro-placeholder">【介绍】请填写活动背景，例如：举办原因、活动主题、目标受众等。</div>
+
+      <div class="modal-section-title">我做了什么 My Role</div>
+      <!-- 【介绍】填写你在活动中的具体职责 -->
+      <div class="intro-placeholder">【介绍】请描述你负责的具体工作，例如：物料设计、城市负责人对接、现场管控等。</div>
+
+      <div class="modal-section-title">成果亮点 Highlights</div>
+      <div class="modal-metrics">
+        <div class="modal-metric"><div class="modal-metric-num">10</div><div class="modal-metric-label">覆盖城市数</div></div>
+      </div>
+
+      <div class="modal-tags">
+        <span class="modal-tag">活动策划</span><span class="modal-tag">宣传设计</span>
+        <span class="modal-tag">城市协调</span><span class="modal-tag">现场执行</span>
+        <span class="modal-tag">全链路管控</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 4: AI Hackathon -->
+<div class="modal-overlay" id="modal-4" onclick="closeOnOverlay(event,this)">
+  <div class="modal">
+    <div class="modal-close"><button onclick="closeModal('modal-4')">✕</button></div>
+    <div class="modal-content">
+      <div class="modal-cat">科技 · AI Product</div>
+      <div class="modal-title">AI Hackathon · 灵感生成器网页产品</div>
+      <div class="modal-meta">2024 &nbsp;·&nbsp; Washington University in St. Louis &nbsp;·&nbsp; 竞赛获奖</div>
+
+      <!-- 主封面图 -->
+      <div class="modal-img-zone" id="modal-img-main-4" style="margin-bottom:16px">
+        <div class="modal-img-placeholder">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <span>点击上传主封面图（与卡片同步）</span>
+        </div>
+        <input type="file" accept="image/*" onchange="previewCardImg(this,'card-img-4','modal-img-main-4')">
+      </div>
+
+      <!-- 2张素材图，各带说明 -->
+      <div class="media-row">
+        <div class="media-cell">
+          <div class="media-cell-img">
+            <div class="cell-hint">素材图 1</div>
+            <input type="file" accept="image/*" onchange="previewMediaCell(this)">
+          </div>
+          <!-- 【介绍】素材图1说明，例如：产品界面截图 -->
+          <div class="media-cell-caption">【介绍】素材图说明，如：产品界面截图</div>
+        </div>
+        <div class="media-cell">
+          <div class="media-cell-img">
+            <div class="cell-hint">素材图 2</div>
+            <input type="file" accept="image/*" onchange="previewMediaCell(this)">
+          </div>
+          <!-- 【介绍】素材图2说明，例如：Demo视频截帧 -->
+          <div class="media-cell-caption">【介绍】素材图说明，如：Demo视频截帧</div>
+        </div>
+      </div>
+
+      <div class="modal-section-title">项目背景 Background</div>
+      <!-- 【介绍】填写Hackathon主题、产品解决的问题、目标用户等 -->
+      <div class="intro-placeholder">【介绍】请填写产品背景，例如：Hackathon主题、产品解决的问题、目标用户等。</div>
+
+      <div class="modal-section-title">我做了什么 My Role</div>
+      <!-- 【介绍】填写宣传策略制定、Demo视频脚本与剪辑思路等 -->
+      <div class="intro-placeholder">【介绍】请描述你的具体工作，例如：宣传策略制定、Demo视频脚本与剪辑思路等。</div>
+
+      <div class="modal-section-title">成果亮点 Highlights</div>
+      <div class="modal-metrics">
+        <div class="modal-metric"><div class="modal-metric-num">🏆</div><div class="modal-metric-label">竞赛获奖</div></div>
+      </div>
+
+      <div class="modal-tags">
+        <span class="modal-tag">产品宣传</span><span class="modal-tag">视频剪辑</span>
+        <span class="modal-tag">AI产品</span><span class="modal-tag">竞赛</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 5: 微电影 -->
+<div class="modal-overlay" id="modal-5" onclick="closeOnOverlay(event,this)">
+  <div class="modal">
+    <div class="modal-close"><button onclick="closeModal('modal-5')">✕</button></div>
+    <div class="modal-content">
+      <div class="modal-cat">影视创作 · Filmmaking</div>
+      <div class="modal-title">原创微电影（8分钟）& 叙事影像剪辑（15分钟）</div>
+      <div class="modal-meta">2024 &nbsp;·&nbsp; Washington University in St. Louis</div>
+
+      <!-- 主封面图 -->
+      <div class="modal-img-zone" id="modal-img-main-5" style="margin-bottom:16px">
+        <div class="modal-img-placeholder">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <span>点击上传主封面图（与卡片同步）</span>
+        </div>
+        <input type="file" accept="image/*" onchange="previewCardImg(this,'card-img-5','modal-img-main-5')">
+      </div>
+
+      <!-- 6张素材图 3列 -->
+      <div class="film-img-grid6">
+        <div class="film-img-cell"><div class="cell-hint">剧照 / 截帧 1</div><input type="file" accept="image/*" onchange="previewFilmCell(this)"></div>
+        <div class="film-img-cell"><div class="cell-hint">剧照 / 截帧 2</div><input type="file" accept="image/*" onchange="previewFilmCell(this)"></div>
+        <div class="film-img-cell"><div class="cell-hint">剧照 / 截帧 3</div><input type="file" accept="image/*" onchange="previewFilmCell(this)"></div>
+        <div class="film-img-cell"><div class="cell-hint">剧照 / 截帧 4</div><input type="file" accept="image/*" onchange="previewFilmCell(this)"></div>
+        <div class="film-img-cell"><div class="cell-hint">剧照 / 截帧 5</div><input type="file" accept="image/*" onchange="previewFilmCell(this)"></div>
+        <div class="film-img-cell"><div class="cell-hint">幕后 / 花絮</div><input type="file" accept="image/*" onchange="previewFilmCell(this)"></div>
+      </div>
+
+      <!-- 视频嵌入区 -->
+      <div class="video-zone">
+        <div class="video-zone-label">▶ 嵌入视频链接（支持 Bilibili · YouTube · Vimeo）</div>
+        <div class="video-zone-input">
+          <input class="video-url-input" type="text" id="film-video-url" placeholder="粘贴视频链接，例如：https://www.bilibili.com/video/BV... 或 YouTube 链接">
+          <button class="video-embed-btn" onclick="embedVideo('film-video-url','film-video-embed')">嵌入视频 →</button>
+        </div>
+        <div class="video-embed-wrap" id="film-video-embed"></div>
+      </div>
+
+      <div class="modal-section-title">影片简介 Synopsis</div>
+      <!-- 【介绍】填写微电影的故事简介、主题立意、视觉风格等 -->
+      <div class="intro-placeholder">【介绍】请填写微电影的故事简介、主题立意、视觉风格等。</div>
+
+      <div class="modal-section-title">我的职责 My Role</div>
+      <!-- 【介绍】填写你在拍摄、剪辑、调色、特效中的具体职责 -->
+      <div class="intro-placeholder">【介绍】请描述你在拍摄、剪辑、调色、特效中的具体职责。</div>
+
+      <div class="modal-tags">
+        <span class="modal-tag">Premiere Pro</span><span class="modal-tag">After Effects</span>
+        <span class="modal-tag">拍摄</span><span class="modal-tag">剪辑</span><span class="modal-tag">调色</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL 6: 建筑装置 -->
+<div class="modal-overlay" id="modal-6" onclick="closeOnOverlay(event,this)">
+  <div class="modal">
+    <div class="modal-close"><button onclick="closeModal('modal-6')">✕</button></div>
+    <div class="modal-content">
+      <div class="modal-cat">建筑设计 · Spatial Design</div>
+      <div class="modal-title">人类与物种共生 · 建筑装置设计</div>
+      <div class="modal-meta">2024 &nbsp;·&nbsp; Washington University in St. Louis</div>
+
+      <!-- 主封面图 -->
+      <div class="modal-img-zone" id="modal-img-main-6" style="margin-bottom:16px">
+        <div class="modal-img-placeholder">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <span>点击上传主封面图（与卡片同步）</span>
+        </div>
+        <input type="file" accept="image/*" onchange="previewCardImg(this,'card-img-6','modal-img-main-6')">
+      </div>
+
+      <!-- 6张素材图 3列 -->
+      <div class="film-img-grid6">
+        <div class="film-img-cell"><div class="cell-hint">Rhino渲染图 1</div><input type="file" accept="image/*" onchange="previewFilmCell(this)"></div>
+        <div class="film-img-cell"><div class="cell-hint">Rhino渲染图 2</div><input type="file" accept="image/*" onchange="previewFilmCell(this)"></div>
+        <div class="film-img-cell"><div class="cell-hint">实体模型</div><input type="file" accept="image/*" onchange="previewFilmCell(this)"></div>
+        <div class="film-img-cell"><div class="cell-hint">概念草图</div><input type="file" accept="image/*" onchange="previewFilmCell(this)"></div>
+        <div class="film-img-cell"><div class="cell-hint">细节照片</div><input type="file" accept="image/*" onchange="previewFilmCell(this)"></div>
+        <div class="film-img-cell"><div class="cell-hint">展示现场</div><input type="file" accept="image/*" onchange="previewFilmCell(this)"></div>
+      </div>
+
+      <div class="modal-section-title">设计理念 Concept</div>
+      <!-- 【介绍】填写以人与鸟类共生为核心命题的设计逻辑 -->
+      <div class="intro-placeholder">【介绍】请填写设计理念，例如：以人与鸟类共生为核心命题，装置如何体现「观察者与被观察者」的叙事张力等。</div>
+
+      <div class="modal-section-title">执行过程 Process</div>
+      <!-- 【介绍】填写从概念草图到Rhino建模再到实体模型的过程 -->
+      <div class="intro-placeholder">【介绍】请描述从概念草图、Rhino数字建模、实体模型制作的全过程。</div>
+
+      <div class="modal-section-title">后期计划 Future Plan</div>
+      <!-- 【介绍】填写将建筑空间转化为Web XR交互网站的后续计划 -->
+      <div class="intro-placeholder">【介绍】请填写后续计划，例如：将建筑空间转化为Web XR交互网站，探讨数字空间叙事的延伸方向等。</div>
+
+      <div class="modal-tags">
+        <span class="modal-tag">Rhinoceros</span><span class="modal-tag">数字建模</span>
+        <span class="modal-tag">实体模型</span><span class="modal-tag">Web XR</span>
+        <span class="modal-tag">空间叙事</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// Scroll fade-in
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.06 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Work filter
+function filterWork(btn, cat) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.work-card').forEach(card => {
+    const show = cat === 'all' || card.dataset.cat === cat;
+    card.style.display = show ? '' : 'none';
+    if (show) { card.style.opacity = '0'; setTimeout(() => { card.style.transition = 'opacity 0.35s'; card.style.opacity = '1'; }, 10); }
+  });
+}
+
+// Modal open/close
+function openModal(id) {
+  document.getElementById(id).classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(id) {
+  document.getElementById(id).classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeOnOverlay(e, overlay) {
+  if (e.target === overlay) {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.modal-overlay.open').forEach(m => {
+      m.classList.remove('open'); document.body.style.overflow = '';
+    });
+  }
+});
+
+// Image preview — card + modal main (synced)
+function previewCardImg(input, cardZoneId, modalZoneId) {
+  if (!input.files || !input.files[0]) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    [cardZoneId, modalZoneId].forEach(zoneId => {
+      if (!zoneId) return;
+      const zone = document.getElementById(zoneId);
+      if (!zone) return;
+      zone.querySelectorAll('div[style*="pointer-events:none"], div[style*="pointer-events: none"], .modal-img-placeholder, .upload-hint').forEach(el => el.style.display = 'none');
+      let img = zone.querySelector('img');
+      if (!img) { img = document.createElement('img'); zone.appendChild(img); }
+      img.src = e.target.result;
+    });
+  };
+  reader.readAsDataURL(input.files[0]);
+}
+
+// media-cell preview (with caption)
+function previewMediaCell(input) {
+  if (!input.files || !input.files[0]) return;
+  const cell = input.closest('.media-cell-img');
+  const reader = new FileReader();
+  reader.onload = e => {
+    cell.querySelector('.cell-hint') && (cell.querySelector('.cell-hint').style.display = 'none');
+    let img = cell.querySelector('img');
+    if (!img) { img = document.createElement('img'); cell.appendChild(img); }
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(input.files[0]);
+}
+
+// event-img-cell preview
+function previewEventCell(input) {
+  if (!input.files || !input.files[0]) return;
+  const cell = input.closest('.event-img-cell-img');
+  const reader = new FileReader();
+  reader.onload = e => {
+    cell.querySelector('.cell-hint') && (cell.querySelector('.cell-hint').style.display = 'none');
+    let img = cell.querySelector('img');
+    if (!img) { img = document.createElement('img'); cell.appendChild(img); }
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(input.files[0]);
+}
+
+// merch product img preview
+function previewMerchImg(input) {
+  if (!input.files || !input.files[0]) return;
+  const cell = input.closest('.merch-product-img-cell');
+  const reader = new FileReader();
+  reader.onload = e => {
+    cell.querySelector('.cell-hint') && (cell.querySelector('.cell-hint').style.display = 'none');
+    let img = cell.querySelector('img');
+    if (!img) { img = document.createElement('img'); cell.appendChild(img); }
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(input.files[0]);
+}
+
+// film/arch 6-cell preview
+function previewFilmCell(input) {
+  if (!input.files || !input.files[0]) return;
+  const cell = input.closest('.film-img-cell');
+  const reader = new FileReader();
+  reader.onload = e => {
+    cell.querySelector('.cell-hint') && (cell.querySelector('.cell-hint').style.display = 'none');
+    let img = cell.querySelector('img');
+    if (!img) { img = document.createElement('img'); cell.appendChild(img); }
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(input.files[0]);
+}
+
+// video embed (Bilibili / YouTube / Vimeo)
+function embedVideo(inputId, wrapId) {
+  const url = document.getElementById(inputId).value.trim();
+  const wrap = document.getElementById(wrapId);
+  if (!url) return;
+  let src = '';
+  const yt = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/))([A-Za-z0-9_-]{11})/);
+  const bili = url.match(/bilibili\.com\/video\/(BV[A-Za-z0-9]+)/i);
+  const vimeo = url.match(/vimeo\.com\/(\d+)/);
+  if (yt) src = `https://www.youtube.com/embed/${yt[1]}`;
+  else if (bili) src = `https://player.bilibili.com/player.html?bvid=${bili[1]}&page=1&high_quality=1`;
+  else if (vimeo) src = `https://player.vimeo.com/video/${vimeo[1]}`;
+  else { alert('暂不支持该链接格式，请粘贴 YouTube / Bilibili / Vimeo 链接'); return; }
+  wrap.innerHTML = `<iframe src="${src}" allowfullscreen allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"></iframe>`;
+  wrap.style.display = 'block';
+  document.getElementById(inputId).closest('.video-zone-input').style.display = 'none';
+}
+
+// Product image preview
+function previewProductImg(input) {
+  if (!input.files || !input.files[0]) return;
+  const zone = input.closest('.product-img-zone');
+  const reader = new FileReader();
+  reader.onload = e => {
+    zone.querySelectorAll('span').forEach(s => s.style.display = 'none');
+    let img = zone.querySelector('img');
+    if (!img) { img = document.createElement('img'); zone.appendChild(img); }
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(input.files[0]);
+}
+</script>
+</body>
+</html>
